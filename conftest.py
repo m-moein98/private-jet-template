@@ -1,5 +1,4 @@
 import re
-import configurations.base_db as base_db
 
 
 def replace(filePath, text, subs, flags=0):
