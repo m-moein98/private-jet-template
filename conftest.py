@@ -1,5 +1,5 @@
 import re
-from settings import get_settings
+import configurations.base_db as base_db
 
 
 def replace(filePath, text, subs, flags=0):
@@ -10,10 +10,6 @@ def replace(filePath, text, subs, flags=0):
         file.seek(0)
         file.truncate()
         file.write(fileContents)
-
-
-def pytest_configure(config):
-    replace(".env", f'mode="{get_settings().mode}"', 'mode="test"')
 
 
 def pytest_unconfigure(config):
