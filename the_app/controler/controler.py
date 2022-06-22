@@ -1,9 +1,7 @@
+from configurations.dependency_injection import inject
 from .db import Database
 
-
+@inject(db=Database)
 class TheAppControler:
-    def __init__(self):
-        self.db = Database()
-
     async def save_data(self, data):
-        await self.db.save_data(data)
+        return self.db.save_data(data)
