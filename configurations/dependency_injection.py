@@ -1,13 +1,3 @@
-
-
-# def inject(target, ControllerClass):
-#
-#     def decorator_init(self):
-#         print("Decorator running")
-#         self.controller = ControllerClass()
-#
-#     target.__init__ = decorator_init
-#     return target
 import inspect
 
 
