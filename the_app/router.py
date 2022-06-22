@@ -2,15 +2,14 @@ from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 
 from configurations.base_router import BaseRouter
-from .db import Database
+from .controler.controler import TheAppControler
 
-db_client = Database()
 router = InferringRouter()
 
 
 @cbv(router)
-class TheAppRouter(BaseRouter):
+class TheAppRouter(BaseRouter, TheAppControler):
 
     @router.get("/")
     async def root(self):
-        return await db_client.save_data({'test': 'test'})
+        self.save_data({"test": "test"})
