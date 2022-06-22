@@ -1,5 +1,5 @@
 import configurations.base_db as base_db
-from configurations.base_db import DatabaseConfiguration, start_db, client, settings
+from configurations.base_db import DatabaseConfiguration, start_db
 
 
 class Database(DatabaseConfiguration):
