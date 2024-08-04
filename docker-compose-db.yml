@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:7.0.12
+    ports:
+      - "2717:27017"
+    networks:
+      - fastapi-net
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+
+  redis:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - 63:6379
+    env_file:
+      - .env
+    volumes:
+      - redis_data:/data
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M

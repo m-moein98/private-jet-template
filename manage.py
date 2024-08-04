@@ -1,11 +1,13 @@
 import os
-import sys
-import uvicorn
 import re
+import sys
+
+import uvicorn
+
 from settings import get_settings
 
 
-def replace(filePath, text, subs, flags=0):
+def replace(filePath: str, text: str, subs: str, flags: int = 0) -> None:
     with open(filePath, "r+") as file:
         fileContents = file.read()
         textPattern = re.compile(re.escape(text), flags)
