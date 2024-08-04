@@ -50,8 +50,8 @@ PrivateJet is designed to be highly customizable. You can configure various aspe
 
 ## Contributors
 
-- [Your Name](https://github.com/m-moein98)
-- [Contributor 2](https://github.com/hsngerami)
+- [m-moein98](https://github.com/m-moein98)
+- [hsngerami](https://github.com/hsngerami)
 
 ## License
 
