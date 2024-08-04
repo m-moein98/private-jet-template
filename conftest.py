@@ -1,7 +1,9 @@
 import re
 
+from pytest import Config
 
-def replace(filePath, text, subs, flags=0):
+
+def replace(filePath: str, text: str, subs: str, flags: int = 0) -> None:
     with open(filePath, "r+") as file:
         fileContents = file.read()
         textPattern = re.compile(re.escape(text), flags)
@@ -11,5 +13,5 @@ def replace(filePath, text, subs, flags=0):
         file.write(fileContents)
 
 
-def pytest_unconfigure(config):
-    replace(".env", f'mode="test"', 'mode="develop"')
+def pytest_unconfigure(config: Config) -> None:
+    replace(".env", 'mode="test"', 'mode="develop"')
